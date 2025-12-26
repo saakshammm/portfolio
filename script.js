@@ -296,10 +296,6 @@ function addTerminalLine() {
         line.textContent = lineContent;
         terminalLinesContainer.appendChild(line);
 
-        // Auto scroll to bottom
-        const terminalBody = terminalLinesContainer.parentElement;
-        terminalBody.scrollTop = terminalBody.scrollHeight;
-
         currentLineIndex++;
 
         // Vary speed based on line content for realism
