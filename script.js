@@ -153,40 +153,53 @@ const scenarios = [
     {
         name: "movie-rec",
         lines: [
-            "$ python train.py",
-            "loading tmdb dataset...",
-            "preprocessing 4803 movies",
-            "computing similarity matrix",
-            "saving model to similarity.pkl",
-            "done.",
+            "$ python train.py --dataset tmdb_5000",
+            "Loading dataset from ./data/tmdb_5000_movies.csv",
+            "Found 4803 movies | 20 features",
+            "Preprocessing: Removing nulls, extracting keywords...",
+            "Building feature vectors using TF-IDF...",
+            "Computing cosine similarity matrix (4803x4803)...",
+            "Progress: [████████████████████] 100% | ETA: 0s",
+            "Saving model to ./models/similarity.pkl (180.4 MB)",
+            "✓ Training complete in 47.2s",
+            "",
             "$ streamlit run app.py",
-            "running on http://localhost:8501"
+            "Streamlit server starting on http://localhost:8501",
+            "✓ Ready | View at saakshammm-movie-rec.hf.space"
         ]
     },
     {
         name: "jarvis-ai",
         lines: [
-            "$ python jarvis.py",
-            "initializing speech recognition...",
-            "loading zephyr-7b model",
-            "listening...",
-            "user: open spotify",
-            "executing command",
-            "spotify launched",
-            "ready."
+            "$ python jarvis.py --model zephyr-7b",
+            "Initializing SpeechRecognition engine...",
+            "Loading Hugging Face model: Zephyr-7B-beta",
+            "Model size: 4.2GB | Quantization: 4-bit",
+            "GPU detected: NVIDIA RTX 3060 (12GB VRAM)",
+            "✓ Model loaded successfully",
+            "",
+            "Listening for wake word 'Jarvis'...",
+            "User input: 'open spotify and play lofi'",
+            "Processing command with NLP pipeline...",
+            "Action: LAUNCH_APP | Target: spotify.exe",
+            "✓ Command executed successfully"
         ]
     },
     {
         name: "emotion-detect",
         lines: [
-            "$ python detect.py",
-            "loading face detector",
-            "starting camera feed",
-            "detecting faces...",
-            "face found at (230, 120)",
-            "prediction: happy (98.4%)",
-            "prediction: neutral (89.2%)",
-            "running..."
+            "$ python detect.py --camera 0",
+            "Loading HAARCascade classifier...",
+            "Initializing TensorFlow Lite model (emotion_model.tflite)",
+            "Model input shape: (1, 48, 48, 1) | Classes: 7",
+            "Starting video stream from Camera 0...",
+            "",
+            "Frame 1: No faces detected",
+            "Frame 24: Face detected at (230, 120, 450, 450)",
+            "Preprocessing: Grayscale → Resize(48x48) → Normalize",
+            "Inference: HAPPY (confidence: 98.4%)",
+            "Inference: NEUTRAL (confidence: 89.2%)",
+            "✓ Running at 30 FPS"
         ]
     }
 ];
@@ -207,13 +220,17 @@ function addTerminalLine() {
         const line = document.createElement('div');
         line.className = 'terminal-line';
 
-        // Add subtle color classes
+        // Add color classes based on content
         if (lineContent.startsWith('$')) {
             line.classList.add('term-command');
-        } else if (lineContent.includes('done') || lineContent.includes('ready') || lineContent.includes('running on')) {
+        } else if (lineContent.startsWith('✓')) {
             line.classList.add('term-success');
-        } else if (lineContent.includes('loading') || lineContent.includes('initializing') || lineContent.includes('starting')) {
+        } else if (lineContent.includes('Loading') || lineContent.includes('Initializing') || lineContent.includes('Starting')) {
             line.classList.add('term-process');
+        } else if (lineContent.includes('Progress:') || lineContent.includes('█')) {
+            line.classList.add('term-progress');
+        } else if (lineContent.includes(':') && (lineContent.includes('MB') || lineContent.includes('GB') || lineContent.includes('%') || lineContent.includes('FPS'))) {
+            line.classList.add('term-info');
         }
 
         line.textContent = lineContent;
