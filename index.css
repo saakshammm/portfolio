@@ -963,20 +963,87 @@ button,
 }
 
 /* ============================================
-   RESPONSIVE
+   RESPONSIVE DESIGN SYSTEM
    ============================================ */
-@media (max-width: 768px) {
-    .hero-grid {
-        grid-template-columns: 1fr;
-        gap: 3rem;
+
+/* Disable custom cursor on touch devices */
+@media (hover: none) and (pointer: coarse) {
+    .cursor-dot {
+        display: none !important;
+    }
+
+    * {
+        cursor: auto !important;
+    }
+
+    /* Reset hover effects that might stick */
+    .project-card:hover,
+    .stack-item:hover,
+    .lesson-item:hover {
+        transform: none !important;
+    }
+}
+
+/* Tablet & Smaller Laptops (max-width: 1024px) */
+@media (max-width: 1024px) {
+    .container {
+        padding: 0 1.5rem;
     }
 
     .hero-name {
-        font-size: 2.5rem;
+        font-size: 3.5rem;
+    }
+
+    .projects-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* Mobile Devices (max-width: 768px) */
+@media (max-width: 768px) {
+    .section {
+        padding: 4rem 0;
+    }
+
+    .hero-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+        padding-top: 1rem;
+    }
+
+    .hero-left {
+        order: 2;
+        /* Put text below terminal on mobile if preferred, or keep as 1 */
+    }
+
+    .hero-name {
+        font-size: 2.75rem;
     }
 
     .hero-tagline {
         font-size: 1rem;
+    }
+
+    /* Scrollable header nav for mobile */
+    .header-content {
+        flex-direction: column;
+        gap: 1rem;
+        align-items: flex-start;
+    }
+
+    .header-nav {
+        width: 100%;
+        overflow-x: auto;
+        padding-bottom: 0.5rem;
+        /* Space for scrollbar */
+        gap: 1.5rem;
+        -webkit-overflow-scrolling: touch;
+        /* Smooth scroll */
+    }
+
+    .header-link {
+        white-space: nowrap;
+        font-size: 0.8rem;
     }
 
     .projects-grid {
@@ -984,16 +1051,46 @@ button,
     }
 
     .stack-grid {
-        grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+        grid-template-columns: repeat(auto-fill, minmax(110px, 1fr));
+        gap: 1rem;
+    }
+
+    .stack-item {
+        padding: 1.25rem 1rem;
+        font-size: 0.75rem;
+        min-height: 70px;
     }
 
     .modal-content {
-        padding: 2rem;
+        padding: 1.5rem;
+        margin: 1rem;
+        max-height: 85vh;
     }
 
-    .terminal-trigger {
-        bottom: 1rem;
-        right: 1rem;
+    .terminal-box {
+        min-height: 300px;
+    }
+}
+
+/* Small Mobile (max-width: 480px) */
+@media (max-width: 480px) {
+    .hero-name {
+        font-size: 2.25rem;
+    }
+
+    .section-title {
+        font-size: 0.8rem;
+    }
+
+    .terminal-input-line {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .terminal-input {
+        width: 100%;
+        margin-left: 0;
+        margin-top: 0.5rem;
     }
 }
 
