@@ -543,17 +543,14 @@ button,
     gap: 2rem;
 }
 
-.note-item {
+.lesson-item {
     border-left: 2px solid var(--border-color);
     padding-left: 1.5rem;
     transition: border-color 0.3s ease;
 }
 
-.note-item:hover {
-    border-left-color: var(--accent-red) !important;
-    background-color: transparent !important;
-    transform: none !important;
-    box-shadow: none !important;
+.lesson-item:hover {
+    border-left-color: var(--accent-red);
 }
 
 .note-date {
