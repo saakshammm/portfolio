@@ -550,10 +550,10 @@ button,
 }
 
 .note-item:hover {
-    border-left-color: var(--accent-red);
-    background-color: transparent;
-    transform: none;
-    box-shadow: none;
+    border-left-color: var(--accent-red) !important;
+    background-color: transparent !important;
+    transform: none !important;
+    box-shadow: none !important;
 }
 
 .note-date {
