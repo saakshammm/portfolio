@@ -551,9 +551,9 @@ button,
 
 .note-item:hover {
     border-left-color: var(--accent-red);
-    background-color: rgba(255, 46, 46, 0.05);
-    transform: translateY(-4px);
-    box-shadow: 0 8px 16px rgba(255, 46, 46, 0.15);
+    background-color: transparent;
+    transform: none;
+    box-shadow: none;
 }
 
 .note-date {
