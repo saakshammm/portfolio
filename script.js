@@ -329,52 +329,30 @@ function closeModal() {
 // TERMINAL EASTER EGG
 // ============================================
 const terminalCommands = {
-    help: `AVAILABLE COMMANDS
+    help: `available commands:
+  projects - list experiments
+  stack    - show tech stack
+  contact  - contact info
+  about    - about me
+  clear    - clear screen`,
 
-  projects    List ML experiments
-  stack       Technology stack
-  contact     Contact information
-  about       About me
-  clear       Clear screen
-`,
+    projects: `experiments:
+${projects.map((p, i) => `  ${i + 1}. ${p.title}\n     ${p.metric}`).join('\n')}`,
 
-    projects: `ML EXPERIMENTS
+    stack: `tech stack:
+  ml/ai: tensorflow, pytorch, scikit-learn, opencv, nltk
+  data: pandas, numpy, matplotlib, seaborn
+  dev: python, streamlit, git`,
 
-${projects.map((p, i) => `  ${i + 1}. ${p.title}\n     ${p.metric}`).join('\n\n')}
-`,
+    contact: `contact:
+  email: saakshammm@gmail.com
+  github: github.com/saakshammm
+  linkedin: linkedin.com/in/sakshamkumar`,
 
-    stack: `TECHNOLOGY STACK
-
-  ML/AI
-  TensorFlow, PyTorch, Scikit-learn, OpenCV, NLTK
-
-  Data Science
-  Pandas, NumPy, Matplotlib, Seaborn
-
-  Development
-  Python, Streamlit, Git, API Integration
-`,
-
-    contact: `CONTACT
-
-  Email
-  saakshammm@gmail.com
-
-  GitHub
-  github.com/saakshammm
-
-  LinkedIn
-  linkedin.com/in/sakshamkumar
-`,
-
-    about: `ABOUT
-
-  "Breaking models until they work."
-
-  ML Engineer building real AI systems.
-  Completed AI/ML internship at Elevate Labs.
-  Always learning, always shipping.
-`
+    about: `about:
+  ml engineer building real ai systems
+  completed ai/ml internship at elevate labs
+  always learning, always shipping`
 };
 
 function openTerminal() {
@@ -383,7 +361,7 @@ function openTerminal() {
     document.getElementById('terminal-input').focus();
 
     const output = document.getElementById('terminal-output');
-    output.innerHTML = `<div class="terminal-line">ML Lab Terminal v2.0</div><div class="terminal-line">Type 'help' for commands</div><div class="terminal-line"></div>`;
+    output.innerHTML = `<div class="terminal-line">terminal v1.0 - type 'help' for commands</div><div class="terminal-line"></div>`;
 }
 
 function closeTerminal() {
