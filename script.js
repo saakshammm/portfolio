@@ -329,28 +329,33 @@ function closeModal() {
 // TERMINAL EASTER EGG
 // ============================================
 const terminalCommands = {
-    help: `Available commands:
-  projects  - List all experiments
-  stack     - Show technology stack
-  contact   - Get contact information
-  about     - Mission statement
-  clear     - Clear terminal
-  help      - Show this message`,
+    help: `<div class="term-header">AVAILABLE COMMANDS</div>
+<div class="terminal-line"><span class="term-cmd">projects</span>    <span class="term-dim">- List all ML experiments</span></div>
+<div class="terminal-line"><span class="term-cmd">stack</span>       <span class="term-dim">- Show technology stack</span></div>
+<div class="terminal-line"><span class="term-cmd">contact</span>     <span class="term-dim">- Get contact information</span></div>
+<div class="terminal-line"><span class="term-cmd">about</span>       <span class="term-dim">- Mission statement</span></div>
+<div class="terminal-line"><span class="term-cmd">clear</span>       <span class="term-dim">- Clear terminal screen</span></div>
+<div class="terminal-line"><span class="term-cmd">help</span>        <span class="term-dim">- Display this menu</span></div>`,
 
-    projects: projects.map((p, i) => `${i + 1}. ${p.title} - ${p.metric}`).join('\n'),
+    projects: `<div class="term-header">ML EXPERIMENTS</div>` +
+        projects.map((p, i) => `<div class="terminal-line"><span class="term-success">${i + 1}.</span> <span class="term-cmd">${p.title.padEnd(25)}</span> <span class="term-highlight">${p.metric}</span></div>`).join(''),
 
-    stack: `Python | Streamlit | TensorFlow | Keras | OpenCV
-scikit-learn | Pandas | NumPy | Matplotlib | Seaborn
-NLTK | Hugging Face | API Integration | Prompt Engineering | Git`,
+    stack: `<div class="term-header">CORE TECHNOLOGY STACK</div>
+<div class="terminal-line"><span class="term-highlight">Languages:</span>  Python | SQL | Bash</div>
+<div class="terminal-line"><span class="term-highlight">Libraries:</span>  TensorFlow | PyTorch | Scikit-learn | OpenCV | NLTK</div>
+<div class="terminal-line"><span class="term-highlight">Data Tools:</span> Pandas | NumPy | Matplotlib | Seaborn</div>
+<div class="terminal-line"><span class="term-highlight">Cloud/Ops:</span>  Hugging Face | Git | API Integration</div>`,
 
-    contact: `Email: saakshammm@gmail.com
-GitHub: github.com/saakshammm
-LinkedIn: linkedin.com/in/sakshamkumar`,
+    contact: `<div class="term-header">CONNECT WITH ME</div>
+<div class="terminal-line"><span class="term-highlight">Email:</span>      <span class="term-cmd">saakshammm@gmail.com</span></div>
+<div class="terminal-line"><span class="term-highlight">GitHub:</span>     <span class="term-cmd">github.com/saakshammm</span></div>
+<div class="terminal-line"><span class="term-highlight">LinkedIn:</span>   <span class="term-cmd">linkedin.com/in/sakshamkumar</span></div>`,
 
-    about: `Breaking models until they work.
-Student hooked on ML, building real systems.
-Completed AI/ML internship at Elevate Labs.
-Learning something new every day.`
+    about: `<div class="term-header">MISSION STATEMENT</div>
+<div class="terminal-line term-success">"Breaking models until they work."</div>
+<div class="terminal-line">ML Engineer focused on building real systems.</div>
+<div class="terminal-line">Completed AI/ML internship at Elevate Labs.</div>
+<div class="terminal-line">Always learning, always building.</div>`
 };
 
 function openTerminal() {
@@ -359,9 +364,11 @@ function openTerminal() {
     document.getElementById('terminal-input').focus();
 
     const output = document.getElementById('terminal-output');
-    output.innerHTML = `<div class="terminal-output-line">Welcome to ML Lab Terminal v1.0</div>
-<div class="terminal-output-line">Type 'help' for available commands</div>
-<div class="terminal-output-line"></div>`;
+    output.innerHTML = `
+        <div class="terminal-line term-success">/// ML Lab Terminal Session v1.0.4 initialized</div>
+        <div class="terminal-line">System: x86_64 Linux 5.15.0-generic</div>
+        <div class="terminal-line">Type <span class="term-cmd">'help'</span> to see available experimental commands.</div>
+        <div class="terminal-line"></div>`;
 }
 
 function closeTerminal() {
@@ -376,28 +383,32 @@ document.getElementById('terminal-input').addEventListener('keypress', function 
 
         // Echo command
         const commandLine = document.createElement('div');
-        commandLine.className = 'terminal-output-line';
-        commandLine.textContent = `$ ${input}`;
+        commandLine.className = 'terminal-line';
+        commandLine.innerHTML = `<span class="term-dim">$</span> <span class="term-cmd">${input}</span>`;
         output.appendChild(commandLine);
 
         // Execute command
-        const resultLine = document.createElement('div');
-        resultLine.className = 'terminal-output-line';
-
         if (input === 'clear') {
             output.innerHTML = '';
         } else if (terminalCommands[input]) {
-            resultLine.textContent = terminalCommands[input];
+            const resultLine = document.createElement('div');
+            resultLine.innerHTML = terminalCommands[input];
             output.appendChild(resultLine);
         } else if (input) {
-            resultLine.textContent = `Command not found: ${input}. Type 'help' for available commands.`;
-            output.appendChild(resultLine);
+            const errorLine = document.createElement('div');
+            errorLine.className = 'terminal-line';
+            errorLine.innerHTML = `<span class="term-highlight">Command not found: ${input}</span>. Type <span class="term-cmd">'help'</span> for help.`;
+            output.appendChild(errorLine);
         }
 
         // Empty line
         const emptyLine = document.createElement('div');
-        emptyLine.className = 'terminal-output-line';
+        emptyLine.className = 'terminal-line';
         output.appendChild(emptyLine);
+
+        // Auto scroll
+        const terminalBody = output.parentElement;
+        terminalBody.scrollTop = terminalBody.scrollHeight;
 
         // Clear input
         this.value = '';
