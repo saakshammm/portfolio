@@ -376,7 +376,7 @@ ${projects.map((p, i) => `  [${i + 1}] ${p.title}\n      → ${p.metric}`).join(
   → github.com/saakshammm
 
   LinkedIn
-  → linkedin.com/in/sakshamkumar
+  → linkedin.com/in/saakshammm
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━`,
 
     about: `About:
