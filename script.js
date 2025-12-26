@@ -43,25 +43,40 @@ hoverElements.forEach(el => {
 // ============================================
 const stickyHeader = document.getElementById('sticky-header');
 const heroName = document.getElementById('hero-name');
+const terminalTrigger = document.querySelector('.terminal-trigger-wrapper');
+const footer = document.querySelector('.footer');
 
 window.addEventListener('scroll', () => {
     const currentScroll = window.pageYOffset;
 
     // Show header and fade out hero name after scrolling past hero section (600px)
     if (currentScroll > 600) {
-        // Fade out hero name
-        heroName.classList.add('fade-out');
-
-        // Show sticky header
-        stickyHeader.classList.remove('hidden');
-        stickyHeader.classList.add('visible');
+        if (heroName) heroName.classList.add('fade-out');
+        if (stickyHeader) {
+            stickyHeader.classList.remove('hidden');
+            stickyHeader.classList.add('visible');
+        }
     } else {
-        // Fade in hero name
-        heroName.classList.remove('fade-out');
+        if (heroName) heroName.classList.remove('fade-out');
+        if (stickyHeader) {
+            stickyHeader.classList.remove('visible');
+            stickyHeader.classList.add('hidden');
+        }
+    }
 
-        // Hide sticky header
-        stickyHeader.classList.remove('visible');
-        stickyHeader.classList.add('hidden');
+    // Hide terminal trigger when near footer
+    if (footer && terminalTrigger) {
+        const footerRect = footer.getBoundingClientRect();
+        const windowHeight = window.innerHeight;
+
+        // If footer is entering the viewport
+        if (footerRect.top < windowHeight) {
+            terminalTrigger.style.opacity = '0';
+            terminalTrigger.style.pointerEvents = 'none';
+        } else {
+            terminalTrigger.style.opacity = '1';
+            terminalTrigger.style.pointerEvents = 'all';
+        }
     }
 });
 
