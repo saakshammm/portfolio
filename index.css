@@ -956,26 +956,33 @@ button,
     min-height: 400px;
     max-height: 70vh;
     overflow-y: auto;
-    color: #888;
-    line-height: 1.5;
+    color: #a0a0a0;
+    line-height: 1.6;
     background-color: #000;
 }
 
 .terminal-line {
-    margin-bottom: 0.25rem;
-    color: #888;
+    margin-bottom: 0.4rem;
+    color: #a0a0a0;
+}
+
+.terminal-line.term-welcome {
+    color: #4ade80;
+    font-weight: 600;
 }
 
 .terminal-prompt {
     color: var(--accent-red);
     margin-right: 0.5rem;
-    font-weight: 500;
+    font-weight: 600;
 }
 
 .terminal-input-line {
     display: flex;
     align-items: center;
-    margin-top: 0.5rem;
+    margin-top: 1rem;
+    padding-top: 0.75rem;
+    border-top: 1px solid #222;
 }
 
 .terminal-input {

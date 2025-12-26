@@ -338,30 +338,55 @@ function closeModal() {
 // TERMINAL EASTER EGG
 // ============================================
 const terminalCommands = {
-    help: `available commands:
-  projects - list experiments
-  stack    - show tech stack
-  contact  - contact info
-  about    - about me
-  clear    - clear screen`,
+    help: `Available Commands:
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  projects    List all ML experiments
+  stack       Show technology stack
+  contact     Get contact information
+  about       About me
+  clear       Clear terminal screen
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━`,
 
-    projects: `experiments:
-${projects.map((p, i) => `  ${i + 1}. ${p.title}\n     ${p.metric}`).join('\n')}`,
+    projects: `ML Experiments:
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+${projects.map((p, i) => `  [${i + 1}] ${p.title}\n      → ${p.metric}`).join('\n\n')}
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━`,
 
-    stack: `tech stack:
-  ml/ai: tensorflow, pytorch, scikit-learn, opencv, nltk
-  data: pandas, numpy, matplotlib, seaborn
-  dev: python, streamlit, git`,
+    stack: `Technology Stack:
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  ML/AI
+  → TensorFlow, PyTorch, Scikit-learn
+  → OpenCV, NLTK, Hugging Face
 
-    contact: `contact:
-  email: saakshammm@gmail.com
-  github: github.com/saakshammm
-  linkedin: linkedin.com/in/sakshamkumar`,
+  Data Science
+  → Pandas, NumPy
+  → Matplotlib, Seaborn
 
-    about: `about:
-  ml engineer building real ai systems
-  completed ai/ml internship at elevate labs
-  always learning, always shipping`
+  Development
+  → Python, Streamlit
+  → Git, API Integration
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━`,
+
+    contact: `Contact Information:
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  Email
+  → saakshammm@gmail.com
+
+  GitHub
+  → github.com/saakshammm
+
+  LinkedIn
+  → linkedin.com/in/sakshamkumar
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━`,
+
+    about: `About:
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  "Breaking models until they work."
+
+  ML Engineer building real AI systems
+  Completed AI/ML internship at Elevate Labs
+  Always learning, always shipping
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━`
 };
 
 function openTerminal() {
@@ -370,7 +395,7 @@ function openTerminal() {
     document.getElementById('terminal-input').focus();
 
     const output = document.getElementById('terminal-output');
-    output.innerHTML = `<div class="terminal-line">terminal v1.0 - type 'help' for commands</div><div class="terminal-line"></div>`;
+    output.innerHTML = `<div class="terminal-line term-welcome">ML Lab Terminal v1.0</div><div class="terminal-line">Type 'help' for available commands</div><div class="terminal-line"></div>`;
 }
 
 function closeTerminal() {
