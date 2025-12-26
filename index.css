@@ -1006,17 +1006,18 @@ button,
     }
 
     .hero-grid {
-        grid-template-columns: 1fr;
+        display: flex;
+        flex-direction: column;
         gap: 2rem;
         padding-top: 1rem;
     }
 
     .hero-left {
-        order: 1;
+        order: 1 !important;
     }
 
     .hero-right {
-        order: 2;
+        order: 2 !important;
     }
 
     .hero-name {
