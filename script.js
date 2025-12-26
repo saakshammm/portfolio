@@ -363,7 +363,7 @@ ${projects.map((p, i) => `  [${i + 1}] ${p.title}\n      → ${p.metric}`).join(
   → Matplotlib, Seaborn
 
   Development
-  → Python, Streamlit
+  → Python, SQL, Streamlit
   → Git, API Integration
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━`,
 
