@@ -999,6 +999,21 @@ button,
     }
 }
 
+/* Tablet & Smaller Laptops (max-width: 1024px) */
+@media (max-width: 1024px) {
+    .container {
+        padding: 0 1.5rem;
+    }
+
+    .hero-name {
+        font-size: 3.5rem;
+    }
+
+    .projects-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
 /* Mobile Devices (max-width: 768px) */
 @media (max-width: 768px) {
     .section {
@@ -1006,18 +1021,21 @@ button,
     }
 
     .hero-grid {
-        display: flex;
-        flex-direction: column;
+        display: grid !important;
+        grid-template-columns: 1fr !important;
+        grid-template-areas:
+            "top"
+            "bottom" !important;
         gap: 2rem;
         padding-top: 1rem;
     }
 
     .hero-left {
-        order: 1 !important;
+        grid-area: top !important;
     }
 
     .hero-right {
-        order: 2 !important;
+        grid-area: bottom !important;
     }
 
     .hero-name {
@@ -1048,7 +1066,6 @@ button,
         gap: 1.5rem;
         overflow-x: auto;
         padding-bottom: 0;
-        /* Hide scrollbars but keep scroll functionality if needed on tiny screens */
         -ms-overflow-style: none;
         scrollbar-width: none;
     }
@@ -1066,6 +1083,7 @@ button,
     /* Ensure glass effect works on iOS */
     .sticky-header {
         -webkit-backdrop-filter: blur(10px);
+        backdrop-filter: blur(10px);
     }
 
     .projects-grid {
