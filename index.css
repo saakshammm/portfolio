@@ -1012,8 +1012,11 @@ button,
     }
 
     .hero-left {
+        order: 1;
+    }
+
+    .hero-right {
         order: 2;
-        /* Put text below terminal on mobile if preferred, or keep as 1 */
     }
 
     .hero-name {
