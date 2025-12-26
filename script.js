@@ -151,55 +151,115 @@ const projects = [
 // ============================================
 const scenarios = [
     {
-        name: "movie-rec",
+        name: "ml-workflow",
         lines: [
-            "$ python train.py --dataset tmdb_5000",
-            "Loading dataset from ./data/tmdb_5000_movies.csv",
-            "Found 4803 movies | 20 features",
-            "Preprocessing: Removing nulls, extracting keywords...",
-            "Building feature vectors using TF-IDF...",
-            "Computing cosine similarity matrix (4803x4803)...",
-            "Progress: [████████████████████] 100% | ETA: 0s",
-            "Saving model to ./models/similarity.pkl (180.4 MB)",
-            "✓ Training complete in 47.2s",
+            "$ python ml_pipeline.py",
             "",
-            "$ streamlit run app.py",
-            "Streamlit server starting on http://localhost:8501",
-            "✓ Ready | View at saakshammm-movie-rec.hf.space"
+            "[1/7] Problem Definition",
+            "→ Task: Movie recommendation system",
+            "→ Objective: Content-based filtering",
+            "",
+            "[2/7] Data Collection",
+            "→ Loading TMDB 5000 movies dataset",
+            "→ Found 4803 movies | 20 features",
+            "",
+            "[3/7] Data Cleaning",
+            "→ Removing null values",
+            "→ Handling duplicates",
+            "→ Data quality: 98.2%",
+            "",
+            "[4/7] Data Preprocessing",
+            "→ Extracting keywords and genres",
+            "→ Building feature vectors (TF-IDF)",
+            "→ Vectorization complete",
+            "",
+            "[5/7] Model Training",
+            "→ Computing cosine similarity matrix",
+            "→ Matrix shape: (4803, 4803)",
+            "→ Training time: 47.2s",
+            "",
+            "[6/7] Model Evaluation",
+            "→ Testing recommendations",
+            "→ Accuracy: 94.3%",
+            "→ Model saved: similarity.pkl (180.4 MB)",
+            "",
+            "[7/7] Deployment",
+            "→ Starting Streamlit server",
+            "→ App running on port 8501",
+            "✓ Deployment successful"
         ]
     },
     {
-        name: "jarvis-ai",
+        name: "cv-pipeline",
         lines: [
-            "$ python jarvis.py --model zephyr-7b",
-            "Initializing SpeechRecognition engine...",
-            "Loading Hugging Face model: Zephyr-7B-beta",
-            "Model size: 4.2GB | Quantization: 4-bit",
-            "GPU detected: NVIDIA RTX 3060 (12GB VRAM)",
-            "✓ Model loaded successfully",
+            "$ python emotion_detection.py",
             "",
-            "Listening for wake word 'Jarvis'...",
-            "User input: 'open spotify and play lofi'",
-            "Processing command with NLP pipeline...",
-            "Action: LAUNCH_APP | Target: spotify.exe",
-            "✓ Command executed successfully"
-        ]
-    },
-    {
-        name: "emotion-detect",
-        lines: [
-            "$ python detect.py --camera 0",
-            "Loading HAARCascade classifier...",
-            "Initializing TensorFlow Lite model (emotion_model.tflite)",
-            "Model input shape: (1, 48, 48, 1) | Classes: 7",
-            "Starting video stream from Camera 0...",
+            "[1/7] Problem Definition",
+            "→ Task: Real-time emotion detection",
+            "→ Classes: 7 emotions",
             "",
-            "Frame 1: No faces detected",
-            "Frame 24: Face detected at (230, 120, 450, 450)",
-            "Preprocessing: Grayscale → Resize(48x48) → Normalize",
-            "Inference: HAPPY (confidence: 98.4%)",
-            "Inference: NEUTRAL (confidence: 89.2%)",
+            "[2/7] Data Collection",
+            "→ Dataset: FER-2013",
+            "→ Images: 35,887 grayscale faces",
+            "",
+            "[3/7] Data Cleaning",
+            "→ Removing corrupted images",
+            "→ Balancing class distribution",
+            "",
+            "[4/7] Data Preprocessing",
+            "→ Resize: 48x48 pixels",
+            "→ Normalization: [0, 1]",
+            "→ Augmentation applied",
+            "",
+            "[5/7] Model Training",
+            "→ Architecture: CNN (4 layers)",
+            "→ Epochs: 50 | Batch size: 64",
+            "→ Training complete",
+            "",
+            "[6/7] Model Evaluation",
+            "→ Validation accuracy: 89.2%",
+            "→ Test accuracy: 87.8%",
+            "",
+            "[7/7] Deployment",
+            "→ Converting to TensorFlow Lite",
+            "→ Starting camera feed",
             "✓ Running at 30 FPS"
+        ]
+    },
+    {
+        name: "nlp-pipeline",
+        lines: [
+            "$ python jarvis_ai.py",
+            "",
+            "[1/7] Problem Definition",
+            "→ Task: Voice-controlled AI assistant",
+            "→ Model: Zephyr-7B-beta",
+            "",
+            "[2/7] Data Collection",
+            "→ Loading pre-trained model",
+            "→ Model size: 4.2GB (4-bit quantized)",
+            "",
+            "[3/7] Data Cleaning",
+            "→ Initializing speech recognition",
+            "→ Setting up audio pipeline",
+            "",
+            "[4/7] Data Preprocessing",
+            "→ Audio processing: 16kHz sample rate",
+            "→ Wake word detection configured",
+            "",
+            "[5/7] Model Training",
+            "→ Loading model to GPU",
+            "→ VRAM usage: 4.2GB / 12GB",
+            "→ Model ready",
+            "",
+            "[6/7] Model Evaluation",
+            "→ Testing voice commands",
+            "→ Response time: <2s",
+            "",
+            "[7/7] Deployment",
+            "→ Listening for 'Jarvis'",
+            "→ NLP pipeline active",
+            "✓ Assistant ready"
         ]
     }
 ];
@@ -225,11 +285,11 @@ function addTerminalLine() {
             line.classList.add('term-command');
         } else if (lineContent.startsWith('✓')) {
             line.classList.add('term-success');
-        } else if (lineContent.includes('Loading') || lineContent.includes('Initializing') || lineContent.includes('Starting')) {
-            line.classList.add('term-process');
-        } else if (lineContent.includes('Progress:') || lineContent.includes('█')) {
+        } else if (lineContent.startsWith('[') && lineContent.includes('/7]')) {
             line.classList.add('term-progress');
-        } else if (lineContent.includes(':') && (lineContent.includes('MB') || lineContent.includes('GB') || lineContent.includes('%') || lineContent.includes('FPS'))) {
+        } else if (lineContent.startsWith('→')) {
+            line.classList.add('term-process');
+        } else if (lineContent.includes(':') && (lineContent.includes('MB') || lineContent.includes('GB') || lineContent.includes('%') || lineContent.includes('FPS') || lineContent.includes('s'))) {
             line.classList.add('term-info');
         }
 
