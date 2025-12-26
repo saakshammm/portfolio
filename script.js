@@ -329,33 +329,42 @@ function closeModal() {
 // TERMINAL EASTER EGG
 // ============================================
 const terminalCommands = {
-    help: `<div class="term-header">AVAILABLE COMMANDS</div>
-<div class="terminal-line"><span class="term-cmd">projects</span>    <span class="term-dim">- List all ML experiments</span></div>
-<div class="terminal-line"><span class="term-cmd">stack</span>       <span class="term-dim">- Show technology stack</span></div>
-<div class="terminal-line"><span class="term-cmd">contact</span>     <span class="term-dim">- Get contact information</span></div>
-<div class="terminal-line"><span class="term-cmd">about</span>       <span class="term-dim">- Mission statement</span></div>
-<div class="terminal-line"><span class="term-cmd">clear</span>       <span class="term-dim">- Clear terminal screen</span></div>
-<div class="terminal-line"><span class="term-cmd">help</span>        <span class="term-dim">- Display this menu</span></div>`,
+    help: `<div class="term-header">Available Commands</div>
+<div class="terminal-line"><span class="term-cmd">projects</span>  <span class="term-dim">—</span>  List all ML experiments</div>
+<div class="terminal-line"><span class="term-cmd">stack</span>     <span class="term-dim">—</span>  Show technology stack</div>
+<div class="terminal-line"><span class="term-cmd">contact</span>   <span class="term-dim">—</span>  Get contact information</div>
+<div class="terminal-line"><span class="term-cmd">about</span>     <span class="term-dim">—</span>  Mission statement</div>
+<div class="terminal-line"><span class="term-cmd">clear</span>     <span class="term-dim">—</span>  Clear terminal</div>`,
 
-    projects: `<div class="term-header">ML EXPERIMENTS</div>` +
-        projects.map((p, i) => `<div class="terminal-line"><span class="term-success">${i + 1}.</span> <span class="term-cmd">${p.title.padEnd(25)}</span> <span class="term-highlight">${p.metric}</span></div>`).join(''),
+    projects: `<div class="term-header">ML Experiments</div>` +
+        projects.map((p, i) => `<div class="terminal-line"><span class="term-dim">${(i + 1).toString().padStart(2, '0')}.</span>  ${p.title}</div><div class="terminal-line" style="margin-left: 2rem; margin-top: -0.5rem;"><span class="term-success">${p.metric}</span></div>`).join(''),
 
-    stack: `<div class="term-header">CORE TECHNOLOGY STACK</div>
-<div class="terminal-line"><span class="term-highlight">Languages:</span>  Python | SQL | Bash</div>
-<div class="terminal-line"><span class="term-highlight">Libraries:</span>  TensorFlow | PyTorch | Scikit-learn | OpenCV | NLTK</div>
-<div class="terminal-line"><span class="term-highlight">Data Tools:</span> Pandas | NumPy | Matplotlib | Seaborn</div>
-<div class="terminal-line"><span class="term-highlight">Cloud/Ops:</span>  Hugging Face | Git | API Integration</div>`,
+    stack: `<div class="term-header">Technology Stack</div>
+<div class="terminal-line"><span class="term-highlight">ML/AI</span></div>
+<div class="terminal-line" style="margin-left: 1.5rem;">TensorFlow · PyTorch · Scikit-learn · OpenCV · NLTK</div>
+<div class="terminal-line"></div>
+<div class="terminal-line"><span class="term-highlight">Data Science</span></div>
+<div class="terminal-line" style="margin-left: 1.5rem;">Pandas · NumPy · Matplotlib · Seaborn</div>
+<div class="terminal-line"></div>
+<div class="terminal-line"><span class="term-highlight">Development</span></div>
+<div class="terminal-line" style="margin-left: 1.5rem;">Python · Streamlit · Git · API Integration</div>`,
 
-    contact: `<div class="term-header">CONNECT WITH ME</div>
-<div class="terminal-line"><span class="term-highlight">Email:</span>      <span class="term-cmd">saakshammm@gmail.com</span></div>
-<div class="terminal-line"><span class="term-highlight">GitHub:</span>     <span class="term-cmd">github.com/saakshammm</span></div>
-<div class="terminal-line"><span class="term-highlight">LinkedIn:</span>   <span class="term-cmd">linkedin.com/in/sakshamkumar</span></div>`,
+    contact: `<div class="term-header">Connect</div>
+<div class="terminal-line"><span class="term-dim">Email</span></div>
+<div class="terminal-line" style="margin-left: 1.5rem;"><span class="term-cmd">saakshammm@gmail.com</span></div>
+<div class="terminal-line"></div>
+<div class="terminal-line"><span class="term-dim">GitHub</span></div>
+<div class="terminal-line" style="margin-left: 1.5rem;"><span class="term-cmd">github.com/saakshammm</span></div>
+<div class="terminal-line"></div>
+<div class="terminal-line"><span class="term-dim">LinkedIn</span></div>
+<div class="terminal-line" style="margin-left: 1.5rem;"><span class="term-cmd">linkedin.com/in/sakshamkumar</span></div>`,
 
-    about: `<div class="term-header">MISSION STATEMENT</div>
-<div class="terminal-line term-success">"Breaking models until they work."</div>
-<div class="terminal-line">ML Engineer focused on building real systems.</div>
+    about: `<div class="term-header">About</div>
+<div class="terminal-line">"Breaking models until they work."</div>
+<div class="terminal-line"></div>
+<div class="terminal-line">ML Engineer building real AI systems.</div>
 <div class="terminal-line">Completed AI/ML internship at Elevate Labs.</div>
-<div class="terminal-line">Always learning, always building.</div>`
+<div class="terminal-line">Always learning, always shipping.</div>`
 };
 
 function openTerminal() {
@@ -365,9 +374,8 @@ function openTerminal() {
 
     const output = document.getElementById('terminal-output');
     output.innerHTML = `
-        <div class="terminal-line term-success">/// ML Lab Terminal Session v1.0.4 initialized</div>
-        <div class="terminal-line">System: x86_64 Linux 5.15.0-generic</div>
-        <div class="terminal-line">Type <span class="term-cmd">'help'</span> to see available experimental commands.</div>
+        <div class="terminal-line"><span class="term-success">ML Lab Terminal v1.0</span></div>
+        <div class="terminal-line">Type <span class="term-cmd">help</span> to see available commands</div>
         <div class="terminal-line"></div>`;
 }
 

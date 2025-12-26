@@ -926,71 +926,81 @@ button,
 }
 
 .terminal-body {
-    padding: 1.5rem;
-    font-family: 'JetBrains Mono', 'Fira Code', 'Courier New', monospace;
-    font-size: 0.85rem;
+    padding: 2rem;
+    font-family: 'Space Grotesk', 'Courier New', monospace;
+    font-size: 0.9rem;
     min-height: 400px;
-    max-height: 60vh;
+    max-height: 70vh;
     overflow-y: auto;
-    color: #a0a0a0;
-    line-height: 1.6;
-    background-color: #0c0c0c;
+    color: var(--text-secondary);
+    line-height: 1.8;
+    background-color: #0a0a0a;
 }
 
 .terminal-line {
-    margin-bottom: 0.25rem;
-    display: flex;
-    align-items: flex-start;
-    text-shadow: 0 0 2px rgba(0, 0, 0, 0.5);
+    margin-bottom: 0.75rem;
+    color: var(--text-secondary);
 }
 
 .term-header {
     color: var(--accent-red);
-    font-weight: 700;
-    margin-bottom: 0.75rem;
-    margin-top: 1rem;
+    font-weight: 600;
+    font-size: 0.75rem;
+    letter-spacing: 0.1em;
+    margin-bottom: 1.25rem;
+    margin-top: 1.5rem;
+    padding-bottom: 0.5rem;
     border-bottom: 1px solid rgba(255, 46, 46, 0.2);
-    padding-bottom: 0.25rem;
-    display: block;
+    text-transform: uppercase;
 }
 
 .term-cmd {
-    color: #00ffff;
+    color: var(--accent-red);
+    font-weight: 500;
 }
 
 .term-success {
-    color: #00ff00;
+    color: #4ade80;
 }
 
 .term-highlight {
-    color: #ffb86c;
+    color: var(--text-primary);
+    font-weight: 500;
 }
 
 .term-dim {
-    color: rgba(255, 255, 255, 0.3);
+    color: rgba(255, 255, 255, 0.2);
+}
+
+.term-label {
+    color: rgba(255, 255, 255, 0.4);
+    min-width: 120px;
+    display: inline-block;
 }
 
 .terminal-prompt {
     color: var(--accent-red);
-    font-weight: bold;
-    text-shadow: 0 0 5px rgba(255, 46, 46, 0.3);
+    font-weight: 600;
+    margin-right: 0.75rem;
 }
 
 .terminal-input-line {
     display: flex;
     align-items: center;
-    margin-top: 0.5rem;
+    margin-top: 1.5rem;
+    padding-top: 1rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
 }
 
 .terminal-input {
     flex: 1;
     background: none;
     border: none;
-    color: #00ff00;
+    color: var(--text-primary);
     font-family: inherit;
-    font-size: inherit;
+    font-size: 0.9rem;
     outline: none;
-    margin-left: 0.5rem;
+    padding: 0.5rem 0;
 }
 
 /* ============================================
