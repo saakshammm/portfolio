@@ -206,6 +206,16 @@ function addTerminalLine() {
         const lineContent = currentScenario[currentLineIndex];
         const line = document.createElement('div');
         line.className = 'terminal-line';
+
+        // Add subtle color classes
+        if (lineContent.startsWith('$')) {
+            line.classList.add('term-command');
+        } else if (lineContent.includes('done') || lineContent.includes('ready') || lineContent.includes('running on')) {
+            line.classList.add('term-success');
+        } else if (lineContent.includes('loading') || lineContent.includes('initializing') || lineContent.includes('starting')) {
+            line.classList.add('term-process');
+        }
+
         line.textContent = lineContent;
         terminalLinesContainer.appendChild(line);
 
