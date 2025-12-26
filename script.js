@@ -329,42 +329,52 @@ function closeModal() {
 // TERMINAL EASTER EGG
 // ============================================
 const terminalCommands = {
-    help: `<div class="term-header">Available Commands</div>
-<div class="terminal-line"><span class="term-cmd">projects</span>  <span class="term-dim">—</span>  List all ML experiments</div>
-<div class="terminal-line"><span class="term-cmd">stack</span>     <span class="term-dim">—</span>  Show technology stack</div>
-<div class="terminal-line"><span class="term-cmd">contact</span>   <span class="term-dim">—</span>  Get contact information</div>
-<div class="terminal-line"><span class="term-cmd">about</span>     <span class="term-dim">—</span>  Mission statement</div>
-<div class="terminal-line"><span class="term-cmd">clear</span>     <span class="term-dim">—</span>  Clear terminal</div>`,
+    help: `AVAILABLE COMMANDS
 
-    projects: `<div class="term-header">ML Experiments</div>` +
-        projects.map((p, i) => `<div class="terminal-line"><span class="term-dim">${(i + 1).toString().padStart(2, '0')}.</span>  ${p.title}</div><div class="terminal-line" style="margin-left: 2rem; margin-top: -0.5rem;"><span class="term-success">${p.metric}</span></div>`).join(''),
+  projects    List ML experiments
+  stack       Technology stack
+  contact     Contact information
+  about       About me
+  clear       Clear screen
+`,
 
-    stack: `<div class="term-header">Technology Stack</div>
-<div class="terminal-line"><span class="term-highlight">ML/AI</span></div>
-<div class="terminal-line" style="margin-left: 1.5rem;">TensorFlow · PyTorch · Scikit-learn · OpenCV · NLTK</div>
-<div class="terminal-line"></div>
-<div class="terminal-line"><span class="term-highlight">Data Science</span></div>
-<div class="terminal-line" style="margin-left: 1.5rem;">Pandas · NumPy · Matplotlib · Seaborn</div>
-<div class="terminal-line"></div>
-<div class="terminal-line"><span class="term-highlight">Development</span></div>
-<div class="terminal-line" style="margin-left: 1.5rem;">Python · Streamlit · Git · API Integration</div>`,
+    projects: `ML EXPERIMENTS
 
-    contact: `<div class="term-header">Connect</div>
-<div class="terminal-line"><span class="term-dim">Email</span></div>
-<div class="terminal-line" style="margin-left: 1.5rem;"><span class="term-cmd">saakshammm@gmail.com</span></div>
-<div class="terminal-line"></div>
-<div class="terminal-line"><span class="term-dim">GitHub</span></div>
-<div class="terminal-line" style="margin-left: 1.5rem;"><span class="term-cmd">github.com/saakshammm</span></div>
-<div class="terminal-line"></div>
-<div class="terminal-line"><span class="term-dim">LinkedIn</span></div>
-<div class="terminal-line" style="margin-left: 1.5rem;"><span class="term-cmd">linkedin.com/in/sakshamkumar</span></div>`,
+${projects.map((p, i) => `  ${i + 1}. ${p.title}\n     ${p.metric}`).join('\n\n')}
+`,
 
-    about: `<div class="term-header">About</div>
-<div class="terminal-line">"Breaking models until they work."</div>
-<div class="terminal-line"></div>
-<div class="terminal-line">ML Engineer building real AI systems.</div>
-<div class="terminal-line">Completed AI/ML internship at Elevate Labs.</div>
-<div class="terminal-line">Always learning, always shipping.</div>`
+    stack: `TECHNOLOGY STACK
+
+  ML/AI
+  TensorFlow, PyTorch, Scikit-learn, OpenCV, NLTK
+
+  Data Science
+  Pandas, NumPy, Matplotlib, Seaborn
+
+  Development
+  Python, Streamlit, Git, API Integration
+`,
+
+    contact: `CONTACT
+
+  Email
+  saakshammm@gmail.com
+
+  GitHub
+  github.com/saakshammm
+
+  LinkedIn
+  linkedin.com/in/sakshamkumar
+`,
+
+    about: `ABOUT
+
+  "Breaking models until they work."
+
+  ML Engineer building real AI systems.
+  Completed AI/ML internship at Elevate Labs.
+  Always learning, always shipping.
+`
 };
 
 function openTerminal() {
@@ -373,10 +383,7 @@ function openTerminal() {
     document.getElementById('terminal-input').focus();
 
     const output = document.getElementById('terminal-output');
-    output.innerHTML = `
-        <div class="terminal-line"><span class="term-success">ML Lab Terminal v1.0</span></div>
-        <div class="terminal-line">Type <span class="term-cmd">help</span> to see available commands</div>
-        <div class="terminal-line"></div>`;
+    output.innerHTML = `<div class="terminal-line">ML Lab Terminal v2.0</div><div class="terminal-line">Type 'help' for commands</div><div class="terminal-line"></div>`;
 }
 
 function closeTerminal() {
@@ -392,7 +399,7 @@ document.getElementById('terminal-input').addEventListener('keypress', function 
         // Echo command
         const commandLine = document.createElement('div');
         commandLine.className = 'terminal-line';
-        commandLine.innerHTML = `<span class="term-dim">$</span> <span class="term-cmd">${input}</span>`;
+        commandLine.textContent = `$ ${input}`;
         output.appendChild(commandLine);
 
         // Execute command
@@ -400,12 +407,13 @@ document.getElementById('terminal-input').addEventListener('keypress', function 
             output.innerHTML = '';
         } else if (terminalCommands[input]) {
             const resultLine = document.createElement('div');
-            resultLine.innerHTML = terminalCommands[input];
+            resultLine.style.whiteSpace = 'pre-wrap';
+            resultLine.textContent = terminalCommands[input];
             output.appendChild(resultLine);
         } else if (input) {
             const errorLine = document.createElement('div');
             errorLine.className = 'terminal-line';
-            errorLine.innerHTML = `<span class="term-highlight">Command not found: ${input}</span>. Type <span class="term-cmd">'help'</span> for help.`;
+            errorLine.textContent = `Command not found: ${input}. Type 'help' for available commands.`;
             output.appendChild(errorLine);
         }
 
