@@ -313,20 +313,19 @@ button,
    TERMINAL BOX
    ============================================ */
 .terminal-box {
-    background-color: var(--bg-secondary);
-    border: 1px solid var(--border-color);
+    background-color: #000;
+    border: 1px solid #333;
     border-radius: 4px;
     overflow: hidden;
-    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
 }
 
 .terminal-box-header {
-    background-color: var(--bg-tertiary);
-    padding: 0.75rem 1rem;
+    background-color: #1a1a1a;
+    padding: 0.5rem 1rem;
     display: flex;
     align-items: center;
     gap: 1rem;
-    border-bottom: 1px solid var(--border-color);
+    border-bottom: 1px solid #333;
 }
 
 .terminal-dots {
@@ -338,7 +337,7 @@ button,
     width: 12px;
     height: 12px;
     border-radius: 50%;
-    background-color: var(--border-color);
+    background-color: #444;
 }
 
 .terminal-dots span:nth-child(1) {
@@ -354,16 +353,19 @@ button,
 }
 
 .terminal-title {
-    font-size: 0.875rem;
-    color: var(--text-secondary);
+    font-size: 0.75rem;
+    color: #888;
+    font-family: 'Courier New', monospace;
 }
 
 .terminal-box-body {
     padding: 1.5rem;
     font-family: 'Courier New', monospace;
-    font-size: 0.875rem;
+    font-size: 0.8rem;
     min-height: 300px;
     color: #00ff00;
+    background-color: #000;
+    line-height: 1.4;
 }
 
 #terminal-lines {
@@ -371,9 +373,10 @@ button,
 }
 
 .terminal-line {
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.3rem;
     opacity: 0;
     animation: fadeIn 0.5s ease forwards;
+    color: #00ff00;
 }
 
 @keyframes fadeIn {
@@ -385,22 +388,9 @@ button,
 .cursor {
     display: inline-block;
     width: 8px;
-    height: 16px;
+    height: 14px;
     background-color: #00ff00;
     animation: blink 1s infinite;
-}
-
-@keyframes blink {
-
-    0%,
-    50% {
-        opacity: 1;
-    }
-
-    51%,
-    100% {
-        opacity: 0;
-    }
 }
 
 /* ============================================

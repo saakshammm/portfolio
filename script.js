@@ -149,45 +149,44 @@ const projects = [
 // ============================================
 // TERMINAL ANIMATION
 // ============================================
-// Multiple simulation scenarios based on actual projects
 const scenarios = [
     {
-        name: "Movie Rec System",
+        name: "movie-rec",
         lines: [
-            "> Loading TMDB 5000 movies dataset...",
-            "> Cleaning data: removing null values...",
-            "> Computing cosine similarity matrix...",
-            "Matrix shape: (4803, 4803) | Size: 180MB",
-            "> Generating content-based recommendations...",
-            "Pickling model to 'similarity.pkl'...",
-            "> Starting Streamlit server on port 8501...",
-            "✓ App running: saakshammm-movie-rec.hf.space"
+            "$ python train.py",
+            "loading tmdb dataset...",
+            "preprocessing 4803 movies",
+            "computing similarity matrix",
+            "saving model to similarity.pkl",
+            "done.",
+            "$ streamlit run app.py",
+            "running on http://localhost:8501"
         ]
     },
     {
-        name: "Jarvis AI",
+        name: "jarvis-ai",
         lines: [
-            "> Initializing SpeechRecognition engine...",
-            "> Loading Zephyr-7B-beta model (4-bit quantized)...",
-            "Model loaded on GPU (VRAM: 4.2GB)",
-            "> Listening for wake word 'Jarvis'...",
-            "User: 'Open Spotify and play lofi'",
-            "> Processing command...",
-            "Executing: subprocess.run(['spotify'])",
-            "✓ Task completed successfully"
+            "$ python jarvis.py",
+            "initializing speech recognition...",
+            "loading zephyr-7b model",
+            "listening...",
+            "user: open spotify",
+            "executing command",
+            "spotify launched",
+            "ready."
         ]
     },
     {
-        name: "Emotion Detection",
+        name: "emotion-detect",
         lines: [
-            "> Loading HAARCascade face detector...",
-            "> Initializing TensorFlow lite model...",
-            "> Starting video stream (Camera 0)...",
-            "Frame 1: No face detected",
-            "Frame 24: Face detected [230, 120, 450, 450]",
-            "Preprocessing: Grayscale -> Resize (48x48)...",
-            "> Inference: HAPPY (Confidence: 98.4%)",
-            "> Inference: NEUTRAL (Confidence: 89.2%)"
+            "$ python detect.py",
+            "loading face detector",
+            "starting camera feed",
+            "detecting faces...",
+            "face found at (230, 120)",
+            "prediction: happy (98.4%)",
+            "prediction: neutral (89.2%)",
+            "running..."
         ]
     }
 ];
@@ -197,33 +196,16 @@ let currentLineIndex = 0;
 const terminalLinesContainer = document.getElementById('terminal-lines');
 
 function addTerminalLine() {
-    // Current scenario lines
     const currentScenario = scenarios[scenarioIndex].lines;
 
-    // If starting fresh, clear content
     if (currentLineIndex === 0) {
         terminalLinesContainer.innerHTML = '';
-        // Add a header for the scenario
-        const header = document.createElement('div');
-        header.className = 'terminal-line term-header';
-        header.textContent = `/// EXPERIMENT: ${scenarios[scenarioIndex].name}`;
-        terminalLinesContainer.appendChild(header);
     }
 
     if (currentLineIndex < currentScenario.length) {
         const lineContent = currentScenario[currentLineIndex];
         const line = document.createElement('div');
         line.className = 'terminal-line';
-
-        // Apply syntax highlighting
-        if (lineContent.startsWith('>')) {
-            line.classList.add('term-cmd');
-        } else if (lineContent.startsWith('✓')) {
-            line.classList.add('term-success');
-        } else if (lineContent.includes('[') || lineContent.includes('Limit:') || lineContent.includes('Loss:')) {
-            line.classList.add('term-highlight');
-        }
-
         line.textContent = lineContent;
         terminalLinesContainer.appendChild(line);
 
