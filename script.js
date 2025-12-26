@@ -64,19 +64,25 @@ window.addEventListener('scroll', () => {
         }
     }
 
-    // Hide terminal trigger when near footer
+    // Dock terminal trigger above footer
     if (footer && terminalTrigger) {
         const footerRect = footer.getBoundingClientRect();
         const windowHeight = window.innerHeight;
 
-        // If footer is entering the viewport
-        if (footerRect.top < windowHeight) {
-            terminalTrigger.style.opacity = '0';
-            terminalTrigger.style.pointerEvents = 'none';
+        // Calculate how much of the footer is visible
+        const footerVisibleHeight = windowHeight - footerRect.top;
+
+        if (footerVisibleHeight > 0) {
+            // Push button up by the amount of footer visible + standard spacing (2rem approx 32px)
+            terminalTrigger.style.bottom = `calc(2rem + ${footerVisibleHeight}px)`;
         } else {
-            terminalTrigger.style.opacity = '1';
-            terminalTrigger.style.pointerEvents = 'all';
+            // Reset to default position
+            terminalTrigger.style.bottom = '2rem';
         }
+
+        // Ensure it stays visible
+        terminalTrigger.style.opacity = '1';
+        terminalTrigger.style.pointerEvents = 'all';
     }
 });
 
