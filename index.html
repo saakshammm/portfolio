@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Saksham Kumar | Machine Learning Engineer</title>
+    <meta name="description"
+        content="ML Engineer building practical AI systems for computer vision and recommendation engines. Explore experiments, research notes, and deployed models.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="icon" type="image/png" href="favicon.png">
+    <link rel="stylesheet" href="index.css">
+</head>
+
+<body>
+    <!-- Sticky Header (appears on scroll) -->
+    <header id="sticky-header" class="sticky-header hidden">
+        <div class="container">
+            <div class="header-content">
+                <div class="header-name">Saksham Kumar</div>
+                <nav class="header-nav">
+                    <a href="#experiments" class="header-link">Experiments</a>
+                    <a href="#stack" class="header-link">Stack</a>
+                    <a href="#experience" class="header-link">Experience</a>
+                    <a href="#connect" class="header-link">Connect</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <div class="page-wrapper">
+        <!-- Terminal Easter Egg -->
+        <div id="terminal-overlay" class="terminal-overlay hidden">
+            <div class="terminal-window">
+                <div class="terminal-header">
+                    <span>saksham@ml-lab:~$</span>
+                    <button class="terminal-close" onclick="closeTerminal()">×</button>
+                </div>
+                <div class="terminal-body">
+                    <div id="terminal-output"></div>
+                    <div class="terminal-input-line">
+                        <span class="terminal-prompt">$</span>
+                        <input type="text" id="terminal-input" class="terminal-input" autocomplete="off">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Terminal Trigger Button -->
+        <div class="terminal-trigger-wrapper">
+            <button class="terminal-trigger" onclick="openTerminal()" title="Open Terminal">
+                >_
+            </button>
+            <span class="terminal-label">TERMINAL</span>
+        </div>
+
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="container">
+                <div class="hero-grid">
+                    <div class="hero-left">
+                        <div class="label">ML ENGINEER</div>
+                        <h1 id="hero-name" class="hero-name">Saksham Kumar</h1>
+                        <p class="hero-tagline">Building AI systems that actually work. Focused on Computer Vision and
+                            Recommendation Engines.</p>
+                        <div class="hero-links">
+                            <a href="https://github.com/saakshammm" target="_blank" class="hero-link">GitHub</a>
+                            <a href="mailto:saakshammm@gmail.com" class="hero-link">Contact</a>
+                        </div>
+                    </div>
+                    <div class="hero-right">
+                        <div class="terminal-box">
+                            <div class="terminal-box-header">
+                                <div class="terminal-dots">
+                                    <span></span>
+                                    <span></span>
+                                    <span></span>
+                                </div>
+                                <span class="terminal-title">training.log</span>
+                            </div>
+                            <div class="terminal-box-body">
+                                <div id="terminal-lines"></div>
+                                <span class="cursor">_</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="neural-bg"></div>
+        </section>
+
+        <!-- Projects Section -->
+        <section id="experiments" class="section projects-section">
+            <div class="container">
+                <div class="section-header">
+                    <div class="section-line"></div>
+                    <h2 class="section-title">EXPERIMENTS</h2>
+                </div>
+                <div class="projects-grid" id="projects-grid"></div>
+            </div>
+        </section>
+
+        <!-- Stack Section -->
+        <section id="stack" class="section stack-section">
+            <div class="container">
+                <div class="section-header">
+                    <div class="section-line"></div>
+                    <h2 class="section-title">STACK</h2>
+                </div>
+                <div class="stack-grid">
+                    <div class="stack-item">Python</div>
+                    <div class="stack-item">Streamlit</div>
+                    <div class="stack-item">TensorFlow</div>
+                    <div class="stack-item">Keras</div>
+                    <div class="stack-item">OpenCV</div>
+                    <div class="stack-item">scikit-learn</div>
+                    <div class="stack-item">Pandas</div>
+                    <div class="stack-item">NumPy</div>
+                    <div class="stack-item">Matplotlib</div>
+                    <div class="stack-item">Seaborn</div>
+                    <div class="stack-item">NLTK</div>
+                    <div class="stack-item">Hugging Face</div>
+                    <div class="stack-item">API Integration</div>
+                    <div class="stack-item">Prompt Engineering</div>
+                    <div class="stack-item">Git</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Education Section -->
+        <section class="section education-section">
+            <div class="container">
+                <div class="section-header">
+                    <div class="section-line"></div>
+                    <h2 class="section-title">EDUCATION</h2>
+                </div>
+                <div class="education-content">
+                    <div class="education-item">
+                        <h3 class="education-degree">Bachelor of Computer Applications (Artificial Intelligence)</h3>
+                        <div class="education-school">Manipal University Jaipur</div>
+                        <div class="education-year">2023 - 2026</div>
+                        <div class="education-coursework">
+                            <strong>Relevant Coursework:</strong> Database Management System, Python Programming,
+                            Data Mining and Visualization, Machine Learning, Artificial Intelligence,
+                            Natural Language Processing, Statistics and Probability
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Experience Section -->
+        <section id="experience" class="section experience-section">
+            <div class="container">
+                <div class="section-header">
+                    <div class="section-line"></div>
+                    <h2 class="section-title">EXPERIENCE</h2>
+                </div>
+                <div class="experience-content">
+                    <div class="experience-item">
+                        <h3 class="experience-title">AI/ML Intern</h3>
+                        <div class="experience-company">Elevate Labs | Remote</div>
+                        <div class="experience-year">2025</div>
+                        <ul class="experience-list">
+                            <li>Worked on data preprocessing, visualization, model saving and deployment</li>
+                            <li>Built ML projects using KNN, SVM, Decision Trees, and Clustering algorithms</li>
+                            <li>Developed and deployed Movie Recommendation System using Hugging Face and Streamlit</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Lab Notes Section -->
+        <section class="section notes-section">
+            <div class="container">
+                <div class="section-header">
+                    <div class="section-line"></div>
+                    <h2 class="section-title">LESSONS LEARNED</h2>
+                </div>
+                <div class="notes-grid">
+                    <div class="note-item">
+                        <span class="note-date">MORBUS</span>
+                        <p class="note-text">Built entire app using AI assistance and prompt engineering. Learned that
+                            clear, specific prompts get better results than vague descriptions.</p>
+                    </div>
+                    <div class="note-item">
+                        <span class="note-date">MOVIE RECOMMENDATION SYSTEM</span>
+                        <p class="note-text">Built this on a 5-year-old tablet while my laptop was broken. Learned that
+                            constraints force creativity and persistence matters more than perfect tools.</p>
+                    </div>
+                    <div class="note-item">
+                        <span class="note-date">EMOTION DETECTION</span>
+                        <p class="note-text">First time building a CNN from scratch for real-time detection. Learned
+                            that
+                            preprocessing and face detection matter as much as the model itself.</p>
+                    </div>
+                    <div class="note-item">
+                        <span class="note-date">JARVIS AI</span>
+                        <p class="note-text">Integrating multiple APIs (speech recognition, Hugging Face, TTS) taught me
+                            that error handling is 80% of the work.</p>
+                    </div>
+                    <div class="note-item">
+                        <span class="note-date">GENERAL ML</span>
+                        <p class="note-text">Discovered that cleaning data takes 80% of the time. The other 20% is
+                            fixing
+                            bugs in the cleaning code.</p>
+                    </div>
+                    <div class="note-item">
+                        <span class="note-date">DEPLOYMENT</span>
+                        <p class="note-text">Learned that "it works on my machine" doesn't count. Deployment is a whole
+                            different game from local development.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="mission" class="section about-section">
+            <div class="container">
+                <div class="section-header">
+                    <div class="section-line"></div>
+                    <h2 class="section-title">MISSION</h2>
+                </div>
+                <div class="about-content">
+                    <p>Get better every day.</p>
+                    <p>Build and deploy real systems that solve actual problems.</p>
+                    <p>Keep learning, keep shipping.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Connect Section -->
+        <section id="connect" class="section contact-section">
+            <div class="container">
+                <div class="section-header">
+                    <div class="section-line"></div>
+                    <h2 class="section-title">CONNECT</h2>
+                </div>
+                <div class="contact-content">
+                    <div class="contact-links">
+                        <a href="mailto:saakshammm@gmail.com" class="contact-link">
+                            Email
+                        </a>
+                        <a href="https://www.linkedin.com/in/saakshammm/" target="_blank" class="contact-link">
+                            LinkedIn
+                        </a>
+                        <a href="https://github.com/saakshammm" target="_blank" class="contact-link">
+                            GitHub
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Project Modal -->
+        <div id="project-modal" class="modal hidden">
+            <div class="modal-overlay" onclick="closeModal()"></div>
+            <div class="modal-content">
+                <button class="modal-close" onclick="closeModal()">×</button>
+                <div id="modal-body"></div>
+            </div>
+        </div>
+
+    </div> <!-- End page-wrapper -->
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <nav class="footer-nav">
+                <a href="#experiments" class="footer-link">Experiments</a>
+                <a href="#stack" class="footer-link">Stack</a>
+                <a href="#experience" class="footer-link">Experience</a>
+            </nav>
+            <div class="footer-copyright">
+                © 2025 Saksham Kumar. Breaking models until they work.
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
