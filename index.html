@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Saksham Kumar | Machine Learning Engineer</title>
+    <meta name="description"
+        content="ML Engineer building practical AI systems for computer vision and recommendation engines.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="icon" type="image/png" href="favicon.png">
+    <link rel="stylesheet" href="index.css">
+</head>
+
+<body>
+    <!-- Sticky Header -->
+    <header id="sticky-header" class="sticky-header hidden">
+        <div class="container">
+            <div class="header-content">
+                <a href="#" class="header-name">Saksham Kumar</a>
+                <nav class="header-nav">
+                    <a href="#experiments" class="header-link">Experiments</a>
+                    <a href="#stack" class="header-link">Stack</a>
+                    <a href="#experience" class="header-link">Experience</a>
+                    <a href="#connect" class="header-link">Connect</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <div class="page-wrapper">
+        <!-- Terminal Easter Egg -->
+        <div id="terminal-overlay" class="terminal-overlay hidden">
+            <div class="terminal-window">
+                <div class="terminal-header">
+                    <span>saksham@ml-lab:~$</span>
+                    <button class="terminal-close" onclick="closeTerminal()">×</button>
+                </div>
+                <div class="terminal-body">
+                    <div id="terminal-output"></div>
+                    <div class="terminal-input-line">
+                        <span class="terminal-prompt">$</span>
+                        <input type="text" id="terminal-input" class="terminal-input" autocomplete="off">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Terminal Trigger Button (right side) -->
+        <div class="terminal-trigger-wrapper">
+            <button class="terminal-trigger" onclick="openTerminal()" title="Open Terminal">
+                >_
+            </button>
+            <span class="terminal-label">TERMINAL</span>
+        </div>
+
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="container">
+                <div class="hero-grid">
+                    <div class="hero-left">
+                        <div class="label">ML ENGINEER</div>
+                        <h1 id="hero-name" class="hero-name">Saksham Kumar</h1>
+                        <p class="hero-tagline">Building intelligent systems that solve real problems. Experimenting
+                            with ML, AI, and everything in between.</p>
+                        <div class="hero-links">
+                            <a href="https://github.com/saakshammm" target="_blank" class="hero-link">GitHub</a>
+                            <a href="#connect" class="hero-link">Connect</a>
+                        </div>
+                    </div>
+                    <div class="hero-right">
+                        <div class="terminal-box" id="hero-terminal">
+                            <div class="terminal-box-header">
+                                <div class="terminal-dots">
+                                    <span onclick="closeHeroTerminal()" title="Close"></span>
+                                    <span onclick="minimizeHeroTerminal()" title="Minimize"></span>
+                                    <span onclick="maximizeHeroTerminal()" title="Maximize"></span>
+                                </div>
+                                <span class="terminal-title">training.log</span>
+                            </div>
+                            <div class="terminal-box-body">
+                                <div id="terminal-lines"></div>
+                                <span class="cursor">_</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="neural-bg"></div>
+        </section>
+
+        <!-- Projects Section -->
+        <section id="experiments" class="section projects-section">
+            <div class="container">
+                <div class="section-header">
+                    <div class="section-line"></div>
+                    <h2 class="section-title">EXPERIMENTS</h2>
+                </div>
+                <div class="projects-grid" id="projects-grid"></div>
+            </div>
+        </section>
+
+        <!-- Stack Section (clean, categorized) -->
+        <section id="stack" class="section stack-section">
+            <div class="container">
+                <div class="section-header">
+                    <div class="section-line"></div>
+                    <h2 class="section-title">STACK</h2>
+                </div>
+                <div class="stack-content" style="max-width:900px; margin:0 auto;">
+                    <!-- Languages -->
+                    <div class="stack-category" style="margin-bottom:2rem;">
+                        <h4 style="font-size:0.75rem; text-transform:uppercase; letter-spacing:0.1em; color:var(--accent-red); margin-bottom:0.75rem;">Languages</h4>
+                        <div style="display:flex; flex-wrap:wrap; gap:0.5rem;">
+                            <span class="stack-item">Python</span>
+                            <span class="stack-item">C</span>
+                            <span class="stack-item">SQL</span>
+                        </div>
+                    </div>
+                    <!-- Frameworks & Libraries -->
+                    <div class="stack-category" style="margin-bottom:2rem;">
+                        <h4 style="font-size:0.75rem; text-transform:uppercase; letter-spacing:0.1em; color:var(--accent-red); margin-bottom:0.75rem;">Frameworks & Libraries</h4>
+                        <div style="display:flex; flex-wrap:wrap; gap:0.5rem;">
+                            <span class="stack-item">PyTorch</span>
+                            <span class="stack-item">TensorFlow</span>
+                            <span class="stack-item">Keras</span>
+                            <span class="stack-item">OpenCV</span>
+                            <span class="stack-item">Pandas</span>
+                            <span class="stack-item">NumPy</span>
+                            <span class="stack-item">Matplotlib</span>
+                            <span class="stack-item">Seaborn</span>
+                            <span class="stack-item">Scikit-learn</span>
+                            <span class="stack-item">Streamlit</span>
+                            <span class="stack-item">Hugging Face</span>
+                        </div>
+                    </div>
+                    <!-- Tools & Platforms -->
+                    <div class="stack-category" style="margin-bottom:2rem;">
+                        <h4 style="font-size:0.75rem; text-transform:uppercase; letter-spacing:0.1em; color:var(--accent-red); margin-bottom:0.75rem;">Tools & Platforms</h4>
+                        <div style="display:flex; flex-wrap:wrap; gap:0.5rem;">
+                            <span class="stack-item">Git</span>
+                            <span class="stack-item">API Integration</span>
+                        </div>
+                    </div>
+                    <!-- Concepts -->
+                    <div class="stack-category" style="margin-bottom:2rem;">
+                        <h4 style="font-size:0.75rem; text-transform:uppercase; letter-spacing:0.1em; color:var(--accent-red); margin-bottom:0.75rem;">Concepts</h4>
+                        <div style="display:flex; flex-wrap:wrap; gap:0.5rem;">
+                            <span class="stack-item">Prompt Engineering</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Education Section -->
+        <section class="section education-section">
+            <div class="container">
+                <div class="section-header">
+                    <div class="section-line"></div>
+                    <h2 class="section-title">EDUCATION</h2>
+                </div>
+                <div class="education-content">
+                    <div class="education-item">
+                        <h3 class="education-degree">Bachelor of Computer Applications (Artificial Intelligence)</h3>
+                        <div class="education-school">Manipal University Jaipur</div>
+                        <div class="education-year">2023 - 2026</div>
+                        <div class="education-coursework">
+                            <strong>Relevant Coursework:</strong> Database Management System, Python Programming,
+                            Data Mining and Visualization, Machine Learning, Artificial Intelligence,
+                            Natural Language Processing, Statistics and Probability
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Experience Section -->
+        <section id="experience" class="section experience-section">
+            <div class="container">
+                <div class="section-header">
+                    <div class="section-line"></div>
+                    <h2 class="section-title">EXPERIENCE</h2>
+                </div>
+                <div class="experience-content">
+                    <div class="experience-item">
+                        <h3 class="experience-title">AI/ML Intern</h3>
+                        <div class="experience-company">ElevateLabs | Remote</div>
+                        <div class="experience-year">June 2025 - July 2025</div>
+                        <p style="color:var(--text-secondary); line-height:1.7; margin-top:1rem;">
+                            Built and deployed a full-stack content-based movie recommendation engine with Streamlit and the TMDB API, integrating secure API-key handling, live poster retrieval, and a clean, responsive UI to deliver an intuitive, real-time recommendation experience accessible via a public Hugging Face Spaces demo.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Connect Section (no email) -->
+        <section id="connect" class="section contact-section">
+            <div class="container">
+                <div class="section-header">
+                    <div class="section-line"></div>
+                    <h2 class="section-title">CONNECT</h2>
+                </div>
+                <div class="contact-content">
+                    <div class="contact-links">
+                        <a href="https://www.linkedin.com/in/saakshammm/" target="_blank" class="contact-link">
+                            LinkedIn
+                        </a>
+                        <a href="https://github.com/saakshammm" target="_blank" class="contact-link">
+                            GitHub
+                        </a>
+                        <a href="https://instagram.com/saksham.cooked" target="_blank" class="contact-link">
+                            Instagram
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Project Modal -->
+        <div id="project-modal" class="modal hidden">
+            <div class="modal-overlay" onclick="closeModal()"></div>
+            <div class="modal-content">
+                <button class="modal-close" onclick="closeModal()">×</button>
+                <div id="modal-body"></div>
+            </div>
+        </div>
+
+    </div> <!-- End page-wrapper -->
+
+    <!-- Footer (simple, no quote) -->
+    <footer class="footer">
+        <div class="container">
+            <!-- intentionally left blank for a clean look -->
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
