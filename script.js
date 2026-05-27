@@ -52,9 +52,23 @@ window.addEventListener('scroll', () => {
 });
 
 // ============================================
-// PROJECT DATA (cooked first)
+// PROJECT DATA
 // ============================================
 const projects = [
+        {
+        title: "broreadtheterms — T&C Roast Machine",
+        description: "Terms & Conditions translator that exposes what you actually agreed to",
+        tags: ["FastAPI", "NVIDIA NIM", "Python", "Docker"],
+        metric: "Live on HF Spaces",
+        details: {
+            problem: "Companies hide the sketchiest stuff behind walls of legalese. You click 'I agree' and forget about it. Built a tool that rips apart privacy policies, terms of service, and subscription traps, then tells you what they actually mean — in the funniest, most savage way possible.",
+            approach: "Built a web app that takes pasted legal text or uploaded .txt, .pdf, or .docx files. The AI translates everything into brutally honest Gen‑Z language, detects red flags like data selling and forced arbitration, and assigns a 0–100 Cooked Score so you know exactly how screwed you are. Includes a validation layer that refuses to analyze non‑legal texts.",
+            model: "Python + FastAPI backend. Vanilla HTML/CSS/JS frontend with Space Grotesk font and hand‑crafted responsive design. NVIDIA NIM API (Llama 3.1 8B) for AI‑powered analysis. PyPDF2 and python‑docx for document parsing. Docker deployment on Hugging Face Spaces. Zero‑cost AI using free tier API — no credit card required.",
+            results: "Live on Hugging Face Spaces. Features instant roast with file upload support, Cooked Score with animated count‑up, red flag detection across 5+ categories, honest translation of full documents, phrase‑by‑phrase breakdown of what they really mean, privacy risk meter, subscription trap warnings, and validation layer. Scored labels like HIGH, GOVERNMENT EXPERIMENT, and DARK SOULS LEVEL.",
+            github: "https://github.com/saakshammm/broreadtheterms",
+            demo: "https://saakshammm-broreadtheterms.hf.space/"
+        }
+    },
     {
         title: "cooked — Chat Roast Analyzer",
         description: "WhatsApp chat analyzer that roasts you with your own messages",
@@ -281,26 +295,51 @@ function closeModal() {
 }
 
 // ============================================
-// TERMINAL EASTER EGG (email removed, "Terminal" only)
+// TERMINAL EASTER EGG
 // ============================================
 const terminalCommands = {
-    help: `Available Commands:\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n  projects    List all ML experiments\n  stack       Show technology stack\n  contact     Get contact information\n  about       About me\n  clear       Clear terminal screen\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━`,
+    help: `Available Commands:
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  projects    List all ML experiments
+  stack       Show technology stack
+  contact     Get contact information
+  about       About me
+  clear       Clear terminal screen
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━`,
 
-    projects: `ML Experiments:\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n${projects.map((p, i) => `  [${i + 1}] ${p.title}\n      → ${p.metric}`).join('\n\n')}\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━`,
+    projects: `ML Experiments:
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+${projects.map((p, i) => `  [${i + 1}] ${p.title}\n      → ${p.metric}`).join('\n\n')}
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━`,
 
     stack: `Tech Stack:
-    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-    Languages       Python, C, SQL
-    Frameworks      PyTorch, TensorFlow, OpenCV,
-                    Pandas, NumPy, Scikit-learn,
-                    Streamlit, Hugging Face
-    Tools           Git, API Integration
-    Concepts        Prompt Engineering
-    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━`,
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  Languages       Python, C, SQL
+  Frameworks      PyTorch, TensorFlow, OpenCV,
+                  Pandas, NumPy, Scikit-learn,
+                  Streamlit, Hugging Face
+  Tools           Git, API Integration
+  Concepts        Prompt Engineering
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━`,
 
-    contact: `Contact Information:\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n  GitHub\n  → github.com/saakshammm\n\n  LinkedIn\n  → linkedin.com/in/saakshammm\n\n  Instagram\n  → instagram.com/saksham.cooked\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━`,
+    contact: `Contact:
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  GitHub      → github.com/saakshammm
+  LinkedIn    → linkedin.com/in/saakshammm
+  Instagram   → instagram.com/saksham.cooked
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━`,
 
-    about: `About:\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n  Focused on learning by building, experimenting, and improving in public.\n\n  Always learning, always shipping.\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━`
+    about: `About Me:
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  I build stuff like a WhatsApp roast machine,
+  a T&C translator, a Spotify companion,
+  emotion detectors, and voice assistants.
+  If it doesn't work yet, I'm probably still
+  debugging it.
+  
+  Currently studying AI at Manipal University.
+  Always shipping. Ask me about cooked.
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━`
 };
 
 function openTerminal() {
