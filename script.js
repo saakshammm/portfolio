@@ -314,19 +314,14 @@ ${projects.map((p, i) => `  [${i + 1}] ${p.title}\n      → ${p.metric}`).join(
 
     stack: `Tech Stack:
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-  Languages       Python, C, SQL
-  Frameworks      PyTorch, TensorFlow, OpenCV,
-                  Pandas, NumPy, Scikit-learn,
-                  Streamlit, Hugging Face
-  Tools           Git, API Integration
-  Concepts        Prompt Engineering
+    Python          Maths
+    Git             Prompt Engineering
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━`,
 
     contact: `Contact:
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
   GitHub      → github.com/saakshammm
   LinkedIn    → linkedin.com/in/saakshammm
-  Instagram   → instagram.com/saksham.cooked
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━`,
 
     about: `About Me:

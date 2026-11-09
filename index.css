@@ -496,14 +496,15 @@ a, button, .project-card, .stack-item {
 .stack-item {
     background-color: rgba(18,18,18,0.6);
     border: 1px solid rgba(255,255,255,0.08);
-    padding: 0.65rem 1rem;
+    padding: 1rem 1.5rem;
     display: inline-flex;
     align-items: center;
     justify-content: center;
     text-align: center;
     font-weight: 500;
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    font-size: 0.75rem;
+    font-size: 0.9rem;
+    min-height: 3.5rem;
     letter-spacing: 0.05em;
     border-radius: 4px;
     position: relative;
@@ -530,37 +531,35 @@ a, button, .project-card, .stack-item {
 }
 
 /* ============================================
-   EDUCATION & EXPERIENCE
+   EDUCATION
    ============================================ */
 .education-content,
-.experience-content {
+.education-item {
     max-width: 800px;
 }
-.education-item,
-.experience-item {
+.education-item {
     border-left: 2px solid var(--border-color);
     padding-left: 1.5rem;
     transition: border-color 0.3s ease;
 }
-.education-item:hover,
-.experience-item:hover {
+.education-item:hover {
     border-left-color: var(--accent-red);
 }
 .education-degree,
-.experience-title {
+.education-degree {
     font-size: 1.5rem;
     font-weight: 600;
     margin-bottom: 0.5rem;
     color: var(--text-primary);
 }
 .education-school,
-.experience-company {
+.education-school {
     font-size: 1rem;
     color: var(--text-secondary);
     margin-bottom: 0.25rem;
 }
 .education-year,
-.experience-year {
+.education-year {
     font-size: 0.875rem;
     color: var(--accent-red);
     text-transform: uppercase;
@@ -585,7 +584,7 @@ a, button, .project-card, .stack-item {
 }
 .contact-links {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(2, 1fr);
     gap: 1.5rem;
 }
 .contact-link {
